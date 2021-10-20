@@ -1,28 +1,28 @@
 const Manager= require("../lib/Manager")
-
-// test("Successfully instantiates instance of Employee class",()=>{
-//     const manager=new Manager();
-//     expect(typeof(manager).toBe("object"));
+const manager=new Manager('Mark', '5678', 'mark@gmail.com', '800');
     
-//     })
-    test("should set name through constructor", ()=>{
-        const name= "Joseph";
-        const manager= new Manager(name);
-        expect(manager.name).toBe(name);
-    })
+test('test if we can get constructor values for the manager object',()=> {
+expect(manager.name).toBe("Mark");
+expect(manager.id).toBe("5678");
+expect(manager.email).toBe("mark@gmail.com");
+expect(manager.officeNumber).toBe("800");
+    });
     
-    test("should set id through constructor", ()=>{
-        const id = "5678";
-        const manager= new Manager(id);
-        expect(manager.id).toBe(id);
-    })
-    test("should set email through constructor", ()=>{
-        const email= "mark@gmail.com";
-        const manager= new Manager(email);
-        expect(manager.email).toBe(email);
-    })
-    test("should set office number through constructor", ()=>{
-        const officeNumber="50";
-        const manager=new Manager(officeNumber);
-        expect(manager.officeNumber).toBe(officeNumber);
-    })
+    test("test if we can get the name from the getName() method", ()=>{
+        expect(manager.getName()).toBe("Mark");
+    });
+    test("test if we can get the id from the getId() method", ()=>{
+        expect(manager.getId()).toBe("5678");
+    });
+  
+    test("test if we can get the email from the getEmail() method", ()=>{
+        expect(manager.getEmail()).toBe("mark@gmail.com");
+    });
+  
+    test("test if we can get the office number from the getOfficeNumber() method", ()=>{
+        expect(manager.getOfficeNumber()).toBe("800");
+    });
+  test ("test if we can get the role from the getRole() method", ()=> {
+      expect(manager.getRole()).toBe("Manager");
+  });
+  

@@ -1,28 +1,34 @@
-const Intern= require("../lib/Intern")
+const Intern=require("../lib/Intern")
 
-// test("Successfully instantiates instance of Intern class",()=>{
-//     const intern=new Intern();
-//     expect(typeof(intern).toBe("object"));
     
-//     })
-    test("should set name through constructor", ()=>{
-        const name= "Eric";
-        const intern= new Intern(name);
-        expect(intern.name).toBe(name);
-    })
+test('test if we can get constructor values for the intern object',()=> {
+    const intern=new Intern('Eric', '321', 'eric@gmail.com', 'UCF');
+expect(intern.name).toBe("Eric");
+expect(intern.id).toBe("321");
+expect(intern.email).toBe("eric@gmail.com");
+expect(intern.school).toBe("UCF");
+    });
     
-    test("should set id through constructor", ()=>{
-        const id = "9875";
-        const intern= new Intern(id);
-        expect(intern.id).toBe(id);
-    })
-    test("should set email through constructor", ()=>{
-        const email= "eric@gmail.com";
-        const intern= new Intern(email);
-        expect(intern.email).toBe(email);
-    })
-    test("should set school name through constructor", ()=>{
-        const school= "UCF";
-        const intern=new Intern(school);
-        expect(intern.school).toBe(school);
-    })
+    test("test if we can get the name from the getName() method", ()=>{
+        const intern=new Intern('Eric', '321', 'eric@gmail.com', 'UCF');
+        expect(intern.getName()).toBe("Eric");
+    });
+    test("test if we can get the id from the getId() method", ()=>{
+        const intern=new Intern('Eric', '321', 'eric@gmail.com', 'UCF');
+        expect(intern.getId()).toBe("321");
+    });
+  
+    test("test if we can get the email from the getEmail() method", ()=>{
+        const intern=new Intern('Eric', '321', 'eric@gmail.com', 'UCF');
+        expect(intern.getEmail()).toBe("eric@gmail.com");
+        
+    });
+    test("test if we can get the school name from the getSchool() method", ()=>{
+        const intern=new Intern('Eric', '321', 'eric@gmail.com', 'UCF');
+        expect(intern.getSchool()).toBe("UCF");
+    });
+  test ("test if we can get the role from the getRole() method", ()=> {
+    const intern=new Intern('Eric', '321', 'eric@gmail.com', 'UCF');
+      expect(intern.getRole()).toBe("Intern");
+  });
+  
