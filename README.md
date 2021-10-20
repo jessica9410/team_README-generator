@@ -30,7 +30,7 @@ THEN I exit the application, and the HTML is generated
 
 
 ## Installation
- node.js, npm install
+ ```npm init```  ```npm install inquirer``` ```node develop/index.js```
 ## Usage
 Inquirer is easiest to use when installed with npm:  ``` npm install inquirer ```. Then you can load the module into your code with a require call: ``` const inquirer = require(‘inquirer’); ```
 
