@@ -23,9 +23,8 @@ module.exports={
         name:"officeNumber",
         message:"What is the teams manager's office number?",
         //validation here
-    }]
+    }],
 
-}
 employeeQuestions:[{
     type:"input",
     name:"name",
@@ -43,7 +42,8 @@ employeeQuestions:[{
     name:"email",
     message:"what is the employee's email?",
     //validation here
-}]
+}],
+
 
 internQuestions:[{
     type:"input",
@@ -67,8 +67,8 @@ internQuestions:[{
     name:"school",
     message:"Enter the name of the intern's school",
 //validation here
-}]
-{
+}],
+
 engineerQuestions:[{
     type:"input",
     name:"name",
@@ -92,5 +92,5 @@ engineerQuestions:[{
     message:"Enter the engineer's github username",
 
 //validation here
-}]
+}],
 }
