@@ -2,7 +2,9 @@ const Manager= require("./lib/Manager");
 const Employee=require("./lib/Employee");
 const Intern=require("./lib/Intern");
 const Engineer=require("./lib/Engineer");
-
+const path = require("path");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const inquirer=require("inquirer");
  const fs= require('fs');
@@ -32,6 +34,76 @@ const createEngineer= async () =>{
     const engineer=new Engineer(answers.name, answers.id, answers.email, answers.github);
     members.push(engineer);
 };
+const render=  (members) =>{
+  for(var i=0; i< members.length; i++){
+    console.log(members[i]);
+  }
+  return `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/1e0a13a89f.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="../dist/style.css" />
+      <title>Team Profile Generator</title>
+  </head>
+  <body>
+      <header>
+      <h1> My Team</h1>
+      </header>
+  
+      <main>  
+          <div class="card" style="width: 18rem;">
+              <div class="card-header">
+             Mark <br/>
+             <i class="fas fa-mug-hot"></i>Manager</div>
+             <ul class="list-group list-group-flush">
+              <li class="list-group-item">ID: 5678</li>
+              <li class="list-group-item">Email: <span id="email"><a href="mailto:mark@gmail.com">mark@gmail.com</a></span></li>
+              <li class="list-group-item">Office Number: 800</li>
+              </ul>
+          </div>
+           
+          <div class="card" style="width: 18rem;">
+              <div class="card-header">
+            Jessica <br/>
+             <i class="fas fa-glasses"></i>Engineer</div>
+             <ul class="list-group list-group-flush">
+              <li class="list-group-item">ID: 1123</li>
+              <li class="list-group-item">Email: <span id="email"><a href="mailto:jess@gmail.com">jess@gmail.com</a></span></li>
+              <li class="list-group-item">Github: <a target="_blank" href="https://github.com/jessica9410">jessicaga9410</a></li>
+              </ul>
+          </div>
+           
+          <div class="card" style="width: 18rem;">
+              <div class="card-header">
+             Eric <br/>
+             <i class="fas fa-user-graduate"></i>Intern</div>
+             <ul class="list-group list-group-flush">
+              <li class="list-group-item">ID: 321</li>
+              <li class="list-group-item">Email: <span id="email"><a href="mailto:eric@gmail.com">eric@gmail.com</a></span></li>
+              <li class="list-group-item">School: UCF</li>
+              </ul>
+          </div>
+           </main>
+       
+  </body>
+  </html>`
+  
+}
+
+const createTeam= async () =>{
+  console.log(members);
+ if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR)
+    }
+  fs.writeFileSync(outputPath, render(members), "utf-8");
+  
+}
+
  const init= async ()=>{
      
 await createManager()
