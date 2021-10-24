@@ -5,7 +5,7 @@ test('test if we can get constructor values for the intern object',()=> {
 expect(engineer.name).toBe("Jessica");
 expect(engineer.id).toBe("1123");
 expect(engineer.email).toBe("jess@gmail.com");
-expect(engineer.github).toBe("jessicaga9410");
+expect(engineer.github).toBe("jessica9410");
     });
     
     test("test if we can get the name from the getName() method", ()=>{
