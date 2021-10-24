@@ -18,7 +18,7 @@ const createManager= async () =>{
     const answers= await inquirer.prompt(managerQuestions);
     console.log(answers);
     const manager=new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-members.push(manager);
+    members.push(manager);
 };
 
  const createIntern= async () =>{
@@ -26,6 +26,8 @@ members.push(manager);
     console.log(answers);
     const intern=new Intern(answers.name, answers.id, answers.email,answers.school);
     members.push(intern);
+
+    options()
 };
 
 const createEngineer= async () =>{
@@ -33,11 +35,34 @@ const createEngineer= async () =>{
     console.log(answers);
     const engineer=new Engineer(answers.name, answers.id, answers.email, answers.github);
     members.push(engineer);
+
+    options();
 };
-const render=  (members) =>{
+
+const createMembersCard = (members) => {
+  let cards = '';
+
   for(var i=0; i< members.length; i++){
     console.log(members[i]);
+
+    cards = cards + `<div class="card" style="width: 18rem;">
+    <div class="card-header">
+    ${members[i].getName()} <br/>
+   <i class="fas fa-user-graduate"></i>${members[i].getRole()}</div>
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item">ID: ${members[i].getId()}</li>
+    <li class="list-group-item">Email: <span id="email"><a href="mailto:eric@gmail.com">${members[i].getEmail()}</a></span></li>
+    </ul>
+  </div>`
+
   }
+
+  return cards;
+  
+}
+
+const render=  (members) =>{
+  
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -56,39 +81,10 @@ const render=  (members) =>{
       </header>
   
       <main>  
-          <div class="card" style="width: 18rem;">
-              <div class="card-header">
-             Mark <br/>
-             <i class="fas fa-mug-hot"></i>Manager</div>
-             <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: 5678</li>
-              <li class="list-group-item">Email: <span id="email"><a href="mailto:mark@gmail.com">mark@gmail.com</a></span></li>
-              <li class="list-group-item">Office Number: 800</li>
-              </ul>
-          </div>
-           
-          <div class="card" style="width: 18rem;">
-              <div class="card-header">
-            Jessica <br/>
-             <i class="fas fa-glasses"></i>Engineer</div>
-             <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: 1123</li>
-              <li class="list-group-item">Email: <span id="email"><a href="mailto:jess@gmail.com">jess@gmail.com</a></span></li>
-              <li class="list-group-item">Github: <a target="_blank" href="https://github.com/jessica9410">jessicaga9410</a></li>
-              </ul>
-          </div>
-           
-          <div class="card" style="width: 18rem;">
-              <div class="card-header">
-             Eric <br/>
-             <i class="fas fa-user-graduate"></i>Intern</div>
-             <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: 321</li>
-              <li class="list-group-item">Email: <span id="email"><a href="mailto:eric@gmail.com">eric@gmail.com</a></span></li>
-              <li class="list-group-item">School: UCF</li>
-              </ul>
-          </div>
-           </main>
+
+           ${createMembersCard(members)}
+          
+      </main>
        
   </body>
   </html>`
@@ -104,10 +100,8 @@ const createTeam= async () =>{
   
 }
 
- const init= async ()=>{
-     
-await createManager()
-const answers= await inquirer.prompt([
+const options = async () => {
+  const answers= await inquirer.prompt([
     {
       type: "list",
       name: "memberChoice",
@@ -125,28 +119,19 @@ switch(answers.memberChoice){
     case "Engineer":
        createEngineer();
         break;
-        case "Intern":
-            createIntern();
-            break;
-            default:
-                createTeam();
+    case "Intern":
+        createIntern();
+        break;
+    default:
+        createTeam();
+  }
 }
+
+ const init= async ()=>{
+     
+    await createManager()
+    options();
  }
 
  init();
-//   console.log(answers);
-//     switch(memberChoice.answers){
-//       case "Engineer":
-//         createEngineer();
-//         break;
-//         case "Intern":
-//           createIntern();
-//           break;
-//           default: 
-// createTeam();
-//     }
-
-//   }
-//   init();
  
-
