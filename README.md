@@ -31,7 +31,7 @@ THEN I exit the application, and the HTML is generated
 ## Installation
  ```npm init```  ```npm install inquirer``` ```index.js```
 ## Usage
-![videoGif](https://user-images.githubusercontent.com/87554644/138575891-e9fe5881-a96a-4bb9-8866-71881673f02c.gif)
+![videoGif](https://user-images.githubusercontent.com/87554644/138575891-e9fe5881-a96a-4bb9-8866-71881673f02c.gif)<br />
 Inquirer is easiest to use when installed with npm:  ``` npm install inquirer ```. Then you can load the module into your code with a require call: ``` const inquirer = require(‘inquirer’); ```
 ![team-generator](https://user-images.githubusercontent.com/87554644/138574943-b4d03086-df21-4b12-a799-a63cbe21d954.png)
 ## License
