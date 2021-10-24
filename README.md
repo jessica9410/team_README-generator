@@ -19,6 +19,7 @@ THEN I am prompted to enter the intern’s name, ID, email, and school, and I am
 🔆WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 
+
 ## Table of Contents
 
 - [Description](#description)
@@ -27,19 +28,17 @@ THEN I exit the application, and the HTML is generated
 - [License](#license)
 - [Questions](#questions)
 
-
-
 ## Installation
  ```npm init```  ```npm install inquirer``` ```node develop/index.js```
 ## Usage
 Inquirer is easiest to use when installed with npm:  ``` npm install inquirer ```. Then you can load the module into your code with a require call: ``` const inquirer = require(‘inquirer’); ```
-
+![team-generator](https://user-images.githubusercontent.com/87554644/138574943-b4d03086-df21-4b12-a799-a63cbe21d954.png)
 ## License
 ![badge](https://img.shields.io/badge/license-MIT-ff69b4)
 <br />
 This application is covered by the MIT license. 
 
 ## Questions
-Find me on GitHub: [Jessicaga9410](https://github.com/Jessicaga9410)<br />
+Find me on GitHub: [Jessicaga9410](https://github.com/Jessica9410)<br />
 <br />
 Email me with any questions: Jessicaga9410@gmail.com<br /><br />
